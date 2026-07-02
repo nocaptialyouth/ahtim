@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#082f49">
+  <title>원무팀용 진료 가이드</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar" aria-label="주요 메뉴">
+      <a class="brand" href="https://www.snh.or.kr/main/main.php" target="_blank" rel="noopener noreferrer" aria-label="센텀종합병원 홈페이지 열기">
+        <span class="brand-image-frame">
+          <img class="brand-image" src="team-family.jpeg" alt="원무팀용 가족 캐릭터">
+        </span>
+        <span><strong>원무팀용</strong></span>
+      </a>
+    </nav>
+
+    <div class="hero-content" id="top">
+      <p class="eyebrow">진료 일정부터 비용까지, 한곳에서</p>
+      <h1>찾고 싶은 정보를<br><span>바로 확인하세요.</span></h1>
+      <p class="hero-copy">의료진, 진료과, 검사·시술, 자주 이용하는 업무 사이트를 빠르게 찾아드립니다.</p>
+      <div class="search-shell">
+        <label class="sr-only" for="globalSearch">통합 검색</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="globalSearch" type="search" placeholder="예: 박미경, 내시경, 농협, HIRA" autocomplete="off">
+        <button id="clearSearch" type="button" aria-label="검색어 지우기">×</button>
+      </div>
+      <div class="quick-links" aria-label="빠른 이동">
+        <button type="button" data-view="schedule">진료 시간표</button>
+        <button type="button" data-view="services">검사·시술 비용</button>
+        <button type="button" data-view="staff">직원·지인 금액</button>
+        <button type="button" data-view="contact">연락처</button>
+        <button type="button" data-view="sites">자주 들어가는 사이트</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary" aria-label="안내 요약">
+      <article><strong id="doctorCount">16</strong><span>의료진</span></article>
+      <article><strong id="serviceCount">45</strong><span>비용 항목</span></article>
+      <article><strong>월–토</strong><span>주간 시간표</span></article>
+    </section>
+
+    <section class="workspace" id="guide">
+      <div class="section-heading">
+        <div>
+          <h2 id="viewTitle">진료 시간표</h2>
+        </div>
+        <div class="view-tabs" role="tablist" aria-label="안내 종류">
+          <button class="active" type="button" data-view="schedule" role="tab">시간표</button>
+          <button type="button" data-view="services" role="tab">비용</button>
+          <button type="button" data-view="staff" role="tab">직원가</button>
+          <button type="button" data-view="contact" role="tab">연락처</button>
+          <button type="button" data-view="sites" role="tab">자주 가는 사이트</button>
+        </div>
+      </div>
+
+      <div id="filterBar" class="filter-bar" aria-label="목록 필터"></div>
+      <div id="resultMeta" class="result-meta" aria-live="polite"></div>
+      <div id="content" class="content-grid"></div>
+      <div id="emptyState" class="empty-state" hidden>
+        <span>⌕</span>
+        <h3>검색 결과가 없습니다</h3>
+        <p>이름이나 항목을 조금 짧게 입력해 보세요.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="hospital-footer">
+    <div class="hospital-footer-inner">
+      <span class="hospital-emblem" aria-hidden="true">H</span>
+      <div>
+        <p>의료법인 나눔과행복의료재단</p>
+        <strong>해운대·나눔과행복병원</strong>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

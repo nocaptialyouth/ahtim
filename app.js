@@ -219,7 +219,7 @@ const favoriteSites = [
   { name: "서울시 학습과정 신청", description: "교육과정 조회·신청", url: "https://sll.seoul.go.kr/lms/requestCourse/doListView.do?main_se=lie&course_category_id=202601165794088&mnid=202412980695" },
   { name: "HIRA 자동차보험심사", description: "건강보험심사평가원", url: "https://aq.hira.or.kr/hira_mc/index.jsp" },
   { name: "해나행", description: "사용자 로그인", url: "https://user.haenahaeng.com/login/" },
-  { name: "센텀종합병원 홈페이지", description: "병원 공식 홈페이지", url: "https://snh.or.kr/main/main.php" },
+  { name: "해운대나눔과행복 홈페이지", description: "병원 공식 홈페이지", url: "https://snh.or.kr/main/main.php" },
   { name: "유스마트", description: "U-SMART", url: "https://u-smart.co.kr/" },
   { name: "중앙응급의료센터 포털", description: "NEMC 회원 로그인", url: "https://portal.nemc.or.kr:444/member/login_page.do" },
   { name: "요양기관정보마당", description: "국민건강보험", url: "https://medicare.nhis.or.kr/portal/index.do" },
@@ -240,7 +240,7 @@ const VIEW_TITLES = {
   contact: "연락처",
   extensions: "내선번호(연락처)",
   organization: "사업자등록번호 · 요양기관번호",
-  sites: "자주 들어가는 사이트",
+  sites: "자주 가는 사이트",
   favorites: "★ 즐겨찾기 목록"
 };
 

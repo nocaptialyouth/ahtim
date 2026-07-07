@@ -241,7 +241,8 @@ const VIEW_TITLES = {
   extensions: "내선번호(연락처)",
   organization: "사업자등록번호 · 요양기관번호",
   sites: "자주 가는 사이트",
-  favorites: "★ 즐겨찾기 목록"
+  favorites: "★ 즐겨찾기 목록",
+  staff_list: "재직직원명단"
 };
 
 const state = { view: "schedule", filter: "전체", query: "", extensionQuery: "" };
@@ -417,10 +418,14 @@ function staffResultCard(item) {
 }
 
 function organizationCard(item) {
+  const id = `org_${item.category}_${item.number}`;
   return `<article class="card organization-card" onclick="copyText('${item.number}', '${item.category}')">
     <div class="card-top">
       <span class="organization-type">${item.type}</span>
-      <span class="code">기관정보</span>
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <span class="code">기관정보</span>
+        ${starBtn(id)}
+      </div>
     </div>
     <p>${item.category}</p>
     <strong class="copyable-number">${highlight(item.number)}</strong>
@@ -454,15 +459,19 @@ function extensionTable(rows) {
 }
 
 function siteCard(item) {
+  const id = `site_${item.name}`;
   const domain = new URL(item.url).hostname.replace(/^www\./, "");
-  return `<a class="card site-card" href="${item.url}" target="_blank" rel="noopener noreferrer">
-    <div class="site-icon" aria-hidden="true">↗</div>
-    <div>
-      <h3>${item.name}</h3>
+  return `<article class="card site-card" onclick="window.open('${item.url}', '_blank', 'noopener,noreferrer')">
+    <div class="card-top" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div class="site-icon" aria-hidden="true">↗</div>
+      ${starBtn(id)}
+    </div>
+    <div style="margin-top: 15px;">
+      <h3>${highlight(item.name)}</h3>
       <p>${item.description}</p>
       <span>${domain}</span>
     </div>
-  </a>`;
+  </article>`;
 }
 
 function staffCalculator() {
@@ -549,7 +558,7 @@ function renderFavorites() {
     return `<div class="empty-state">
       <span style="font-size: 45px; color: #cbd5e1;">★</span>
       <h3>즐겨찾기된 항목이 없습니다</h3>
-      <p>시간표, 비용, 연락처, 내선번호의 별(★) 아이콘을 눌러 추가해 보세요.</p>
+      <p>시간표, 비용, 연락처, 내선번호, 기관정보, 자주 가는 사이트의 별(★) 아이콘을 눌러 추가해 보세요.</p>
     </div>`;
   }
   
@@ -572,6 +581,16 @@ function renderFavorites() {
   const starredExts = extensions.filter(ext => starredIds.includes(`ext_${ext.team}_${ext.contact}_${ext.number}`));
   if (starredExts.length > 0) {
     html += `<div class="fav-section"><h2>내선번호</h2><div class="content-grid">${starredExts.map(extensionResultCard).join("")}</div></div>`;
+  }
+  
+  const starredOrgs = organizationInfo.filter(org => starredIds.includes(`org_${org.category}_${org.number}`));
+  if (starredOrgs.length > 0) {
+    html += `<div class="fav-section"><h2>기관정보</h2><div class="content-grid">${starredOrgs.map(organizationCard).join("")}</div></div>`;
+  }
+
+  const starredSites = favoriteSites.filter(site => starredIds.includes(`site_${site.name}`));
+  if (starredSites.length > 0) {
+    html += `<div class="fav-section"><h2>자주 가는 사이트</h2><div class="content-grid">${starredSites.map(siteCard).join("")}</div></div>`;
   }
   
   return html;
@@ -670,6 +689,16 @@ function render() {
     renderFilters([]);
     html = renderFavorites();
     list = favorites.get();
+  } else if (state.view === "staff_list") {
+    els.title.textContent = VIEW_TITLES[state.view];
+    els.extensionSearchBar.hidden = true;
+    renderFilters([]);
+    html = `<div class="empty-state">
+      <span style="font-size: 45px; color: #cbd5e1;">👥</span>
+      <h3>재직직원명단 준비 중</h3>
+      <p>명단 데이터가 업데이트되는 대로 구현될 예정입니다.</p>
+    </div>`;
+    list = [];
   } else {
     els.title.textContent = VIEW_TITLES[state.view];
     els.extensionSearchBar.hidden = true;
@@ -679,7 +708,7 @@ function render() {
   }
 
   els.content.innerHTML = html;
-  els.empty.hidden = list.length > 0 || state.view === "favorites";
+  els.empty.hidden = list.length > 0 || state.view === "favorites" || state.view === "staff_list";
   const activeQuery = state.query || (state.view === "extensions" ? state.extensionQuery : "");
   els.resultMeta.innerHTML = activeQuery
     ? `<strong>“${activeQuery}”</strong> 검색 결과 ${list.length}건`

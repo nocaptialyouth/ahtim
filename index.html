@@ -3,19 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#082f49">
+  <meta name="theme-color" content="#163069">
   <title>원무팀용 진료 가이드</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="hero">
     <nav class="topbar" aria-label="주요 메뉴">
-      <a class="brand" href="https://www.snh.or.kr/main/main.php" target="_blank" rel="noopener noreferrer" aria-label="센텀종합병원 홈페이지 열기">
-        <span class="brand-image-frame">
-          <img class="brand-image" src="team-family.jpeg" alt="원무팀용 가족 캐릭터">
-        </span>
-        <span><strong>원무팀용</strong></span>
-      </a>
+      <div class="brand-logo-area">
+        <a class="brand" href="https://www.snh.or.kr/main/main.php" target="_blank" rel="noopener noreferrer" aria-label="센텀종합병원 홈페이지 열기">
+          <span class="brand-image-frame">
+            <img class="brand-image" src="team-family.jpeg" alt="원무팀용 가족 캐릭터">
+          </span>
+          <span><strong>원무팀용</strong></span>
+        </a>
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="다크 모드 토글" title="테마 변경 (라이트/다크)">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+      <div class="top-actions" aria-label="원무팀 바로가기">
+        <a href="https://calendar.google.com/calendar/embed?src=kdy53800%40gmail.com&amp;ctz=Asia%2FSeoul" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">▣</span> 원무 일정 캘린더
+        </a>
+        <a href="https://drive.google.com/drive/folders/1HI5REY0k78bCepBl9L4pzfRpbrD-OYaS?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">◆</span> 원무 구글 드라이브
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1C92l7nLl65C3kQHEyasuvKM5IBelZOlxaxC8cOznhwA/edit" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">✓</span> 남는시간 체크파일
+        </a>
+        <a class="duty-link" href="https://docs.google.com/spreadsheets/d/15QcZWxhGHch_6uAfdCrY-U3WgZ0bxs-_/edit?gid=674708936#gid=674708936" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">▤</span> 토요일마감당직자
+        </a>
+      </div>
     </nav>
 
     <div class="hero-content" id="top">
@@ -33,7 +53,10 @@
         <button type="button" data-view="services">검사·시술 비용</button>
         <button type="button" data-view="staff">직원·지인 금액</button>
         <button type="button" data-view="contact">연락처</button>
+        <button type="button" data-view="extensions">내선번호</button>
+        <button type="button" data-view="organization">기관정보</button>
         <button type="button" data-view="sites">자주 들어가는 사이트</button>
+        <button type="button" data-view="favorites" class="fav-quick-btn">★ 즐겨찾기</button>
       </div>
     </div>
   </header>
@@ -55,10 +78,21 @@
           <button type="button" data-view="services" role="tab">비용</button>
           <button type="button" data-view="staff" role="tab">직원가</button>
           <button type="button" data-view="contact" role="tab">연락처</button>
+          <button type="button" data-view="extensions" role="tab">내선번호</button>
+          <button type="button" data-view="organization" role="tab">기관정보</button>
           <button type="button" data-view="sites" role="tab">자주 가는 사이트</button>
+          <button type="button" data-view="favorites" role="tab">★ 즐겨찾기</button>
         </div>
       </div>
 
+      <div id="extensionSearchBar" class="extension-search-bar" hidden>
+        <label for="extensionSearch">내선번호(연락처) 검색</label>
+        <div>
+          <span aria-hidden="true">⌕</span>
+          <input id="extensionSearch" type="search" placeholder="부서명, 이름, 내선번호를 입력하세요" autocomplete="off">
+          <button id="clearExtensionSearch" type="button" aria-label="내선번호 검색어 지우기">×</button>
+        </div>
+      </div>
       <div id="filterBar" class="filter-bar" aria-label="목록 필터"></div>
       <div id="resultMeta" class="result-meta" aria-live="polite"></div>
       <div id="content" class="content-grid"></div>
@@ -80,6 +114,9 @@
       </div>
     </div>
   </footer>
+
+  <button id="scrollTop" class="scroll-top-btn" aria-label="맨 위로 이동" title="맨 위로 이동">↑</button>
+  <div id="toastContainer"></div>
 
   <script src="app.js"></script>
 </body>

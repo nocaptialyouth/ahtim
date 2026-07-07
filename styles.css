@@ -226,6 +226,11 @@ main { position: relative; }
   padding: 5px;
   background: #e8eef2;
   border-radius: 14px;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+}
+.view-tabs::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 .view-tabs button {
   padding: 9px 17px;
@@ -816,6 +821,9 @@ body.dark .theme-toggle-btn {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 90vw;
+  text-align: center;
+  word-break: break-all;
 }
 
 .toast.show {

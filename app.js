@@ -97,7 +97,26 @@ const contacts = [
     { label: "TEL", value: "051-749-8183" },
     { label: "TEL", value: "051-749-8185" },
     { label: "FAX", value: "051-801-4473", fax: true }
-  ] }
+  ] },
+  { title: "동아대학교대신요양병원", description: "요양병원 연락처", numbers: [{ label: "TEL", value: "051-960-0100" }] },
+  { title: "멕켄지일신재활병원", description: "재활병원 연락처", numbers: [{ label: "TEL", value: "051-363-2331" }] },
+  { title: "봉생힐링병원", description: "재활요양병원 연락처", numbers: [{ label: "TEL", value: "051-668-6000" }] },
+  { title: "워크재활병원", description: "재활병원 연락처", numbers: [{ label: "TEL", value: "051-714-4119" }] },
+  { title: "큰솔병원", description: "재활병원 연락처", numbers: [{ label: "TEL", value: "051-325-9700" }] },
+  { title: "파크사이드병원", description: "재활의학병원 연락처", numbers: [{ label: "TEL", value: "051-629-8000" }] },
+  { title: "해운대백병원", description: "대학병원 연락처", numbers: [{ label: "TEL", value: "051-797-0100" }] },
+  { title: "센텀종합병원(수영)", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-750-5000" }] },
+  { title: "BHS한서병원", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-756-0081" }] },
+  { title: "좋은강안병원", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-625-0900" }] },
+  { title: "센텀이루다병원", description: "재활요양병원 연락처", numbers: [{ label: "TEL", value: "051-608-7000" }] },
+  { title: "좌천봉생병원", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-664-4000" }] },
+  { title: "부산백병원", description: "대학병원 연락처", numbers: [{ label: "TEL", value: "051-890-6114" }] },
+  { title: "동아대학교병원", description: "대학병원 연락처", numbers: [{ label: "TEL", value: "051-240-2000" }] },
+  { title: "동의병원", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-867-5101" }] },
+  { title: "부산대학교병원", description: "대학병원 연락처", numbers: [{ label: "TEL", value: "051-240-7000" }] },
+  { title: "양산부산대학교병원", description: "대학병원 연락처", numbers: [{ label: "TEL", value: "055-360-1000" }] },
+  { title: "단골병원", description: "의원급/중소병원 연락처", numbers: [{ label: "TEL", value: "051-582-0100" }] },
+  { title: "동래봉생병원", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-520-5500" }] }
 ];
 
 const organizationInfo = [

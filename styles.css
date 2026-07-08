@@ -69,7 +69,7 @@ button { cursor: pointer; }
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--white);
+  color: #ffffff;
   font-weight: 700;
   font-size: 16px;
   text-decoration: none;
@@ -86,7 +86,7 @@ button { cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: #ffffff;
   font-weight: 800;
   font-size: 20px;
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
@@ -97,7 +97,7 @@ button { cursor: pointer; }
   position: relative;
   overflow: hidden;
   padding: 64px 0 80px;
-  color: var(--white);
+  color: #ffffff;
   background: radial-gradient(circle at 10% 20%, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.98) 90%),
               url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200') no-repeat center/cover;
 }
@@ -107,7 +107,7 @@ button { cursor: pointer; }
   gap: 6px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--white);
+  color: #ffffff;
   font-size: 11px;
   font-weight: 600;
   padding: 6px 16px;
@@ -972,6 +972,13 @@ body.dark .calculator-badge {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+}
+
+@media (max-width: 500px) {
+  .calc-results {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }
 
 .calc-res-item {

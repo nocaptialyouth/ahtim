@@ -241,8 +241,7 @@ const VIEW_TITLES = {
   extensions: "내선번호(연락처)",
   organization: "사업자등록번호 · 요양기관번호",
   sites: "자주 가는 사이트",
-  favorites: "★ 즐겨찾기 목록",
-  staff_list: "재직직원명단"
+  favorites: "★ 즐겨찾기 목록"
 };
 
 const state = { view: "schedule", filter: "전체", query: "", extensionQuery: "" };
@@ -689,24 +688,7 @@ function render() {
     renderFilters([]);
     html = renderFavorites();
     list = favorites.get();
-  } else if (state.view === "staff_list") {
-    els.title.textContent = VIEW_TITLES[state.view];
-    els.extensionSearchBar.hidden = true;
-    renderFilters([]);
-    html = `<div class="meditong-integration-card">
-      <div style="font-size: 50px; margin-bottom: 20px; color: var(--blue);">👥</div>
-      <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 12px; color: var(--navy);">메디통 재직직원명단 조회</h3>
-      <p style="color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
-        메디통 그룹웨어는 보안 로그인 권한이 필요한 내부 시스템입니다.<br>
-        아래 바로가기 버튼을 클릭하시면 공식 메디통 재직직원 주소록 명단 페이지로 즉시 연결되어 간편하게 검색하실 수 있습니다.
-      </p>
-      <a href="https://gw.meditong.com/bizwiz/address/memList.asp?LCode=l_6_1_1" target="_blank" rel="noopener noreferrer" class="btn-link">
-        <span>메디통 직원조회 바로가기</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-      </a>
-      <p style="font-size: 11px; color: var(--muted); margin-top: 14px;">(※ 메디통 로그인이 필요합니다)</p>
-    </div>`;
-    list = [];
+
   } else {
     els.title.textContent = VIEW_TITLES[state.view];
     els.extensionSearchBar.hidden = true;
@@ -716,7 +698,7 @@ function render() {
   }
 
   els.content.innerHTML = html;
-  els.empty.hidden = list.length > 0 || state.view === "favorites" || state.view === "staff_list";
+  els.empty.hidden = list.length > 0 || state.view === "favorites";
   const activeQuery = state.query || (state.view === "extensions" ? state.extensionQuery : "");
   els.resultMeta.innerHTML = activeQuery
     ? `<strong>“${activeQuery}”</strong> 검색 결과 ${list.length}건`

@@ -1199,3 +1199,37 @@ body.dark .meditong-integration-card {
 }
 
 
+/* 상단바 재직직원명단 버튼 */
+.nav-staff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-staff-btn:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 500px) {
+  .nav-staff-btn span {
+    display: none;
+  }
+  .nav-staff-btn::after {
+    content: "명단";
+  }
+  .nav-staff-btn {
+    padding: 8px 12px;
+  }
+}

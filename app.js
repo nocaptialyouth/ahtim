@@ -105,7 +105,7 @@ const contacts = [
   { title: "큰솔병원", description: "재활병원 연락처", numbers: [{ label: "TEL", value: "051-325-9700" }] },
   { title: "파크사이드병원", description: "재활의학병원 연락처", numbers: [{ label: "TEL", value: "051-629-8000" }] },
   { title: "해운대백병원", description: "대학병원 연락처", numbers: [{ label: "TEL", value: "051-797-0100" }] },
-  { title: "센텀종합병원(수영)", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-750-5000" }] },
+  { title: "센텀종합병원(수영)", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "1644-5520" }] },
   { title: "BHS한서병원", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-756-0081" }] },
   { title: "좋은강안병원", description: "종합병원 연락처", numbers: [{ label: "TEL", value: "051-625-0900" }] },
   { title: "센텀이루다병원", description: "재활요양병원 연락처", numbers: [{ label: "TEL", value: "051-608-7000" }] },

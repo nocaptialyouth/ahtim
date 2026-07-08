@@ -1152,3 +1152,50 @@ body.dark .scroll-top-btn:hover {
   text-align: right;
 }
 
+/* 메디통 직원명단 연동 카드 */
+.meditong-integration-card {
+  grid-column: 1 / -1;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 40px 32px;
+  text-align: center;
+  border: 1px solid var(--line);
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+body.dark .meditong-integration-card {
+  border-color: #334155;
+  background: #1e293b;
+}
+
+.meditong-integration-card .btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 750;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.meditong-integration-card .btn-link:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.meditong-integration-card .btn-link svg {
+  stroke: currentColor;
+}
+
+
